@@ -51,10 +51,10 @@ pipeline {
                     $credentials = New-Object System.Management.Automation.PSCredential($env:CREDENTIAL_USERNAME, (ConvertTo-SecureString $env:CREDENTIAL_PASSWORD -AsPlainText -Force))
 
                     
-                    New-PSDrive -Name X -PSProvider FileSystem -Root "\\\\DESKTOP-CFPNE1B\\coreapp" -Persist -Credential $credentials
+                    New-PSDrive -Name E -PSProvider FileSystem -Root "\\\\DESKTOP-CFPNE1B\\coreapp" -Persist -Credential $credentials
 
                     
-                    Copy-Item -Path '.\\publish\\*' -Destination
+                    Copy-Item -Path '.\\publish\\*' -Destination "E:\" -Force
 
                     
                     Remove-PSDrive -Name X
